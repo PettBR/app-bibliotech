@@ -1,10 +1,11 @@
 <mat-toolbar>
-    <span>Collaborators</span>
+    <span class="bibliotech">Bibliotech</span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <i class="material-icons">menu</i>
     </button>
     <mat-menu #menu="matMenu">
         <a mat-menu-item routerLink="/home">Home</a>
+        <a mat-menu-item routerLink="/cadastrar-livro">Livros</a>
         <a mat-menu-item routerLink="/dashboard">Painel de Controle</a>
         <a mat-menu-item id="logout">Sair <i class="material-icons">logout</i></a>
     </mat-menu>

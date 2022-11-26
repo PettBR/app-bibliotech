@@ -3,10 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from '@angular/fire/compat';
+import { MaterialModule } from './shared/material/material.module';
+
 import { environment } from 'src/environments/environment';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,6 +21,7 @@ import { CadastrarLivroComponent } from './views/cadastrar-livro/cadastrar-livro
 import { EmprestimoComponent } from './views/emprestimo/emprestimo.component';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
 import { CadastrarUsuarioComponent } from './views/cadastrar-usuario/cadastrar-usuario.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,11 @@ import { CadastrarUsuarioComponent } from './views/cadastrar-usuario/cadastrar-u
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
