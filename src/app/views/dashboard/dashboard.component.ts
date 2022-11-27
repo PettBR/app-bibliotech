@@ -15,7 +15,14 @@ export class DashboardComponent implements OnInit {
       livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
       dataDeEmprestimo: new Date(),
       status: "recebido",
+    },
+    {
+      nome: "Pedro",
+      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
+      dataDeEmprestimo: new Date(),
+      status: "pendente",
     }
+
   ];
 
 

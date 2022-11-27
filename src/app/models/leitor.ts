@@ -6,3 +6,4 @@ export interface Leitor {
     dataDeEmprestimo: Date;
     status: string;
 }
+

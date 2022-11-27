@@ -19,7 +19,7 @@
             <!-- Data de Empréstimo Column -->
             <ng-container matColumnDef="dataDeEmprestimo">
                 <th mat-header-cell *matHeaderCellDef> Data de Empréstimo </th>
-                <td mat-cell *matCellDef="let leitor"> {{leitor.dataDeEmprestimo | date }} </td>
+                <td mat-cell *matCellDef="let leitor"> {{leitor.dataDeEmprestimo | date:'dd/MM/yyyy' }} </td>
             </ng-container>
 
             <!-- Status Column -->
