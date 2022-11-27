@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +12,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   
+  public formLogin: FormGroup;
 
-  constructor() { }
+  constructor(
+    fb: FormBuilder,
+    private authService: AuthService,
+    private notification: NotificationService,
+    private router: Router
+    ) {
+    this.formLogin = fb.group({
+      email: ['', [Validators.required]],
+      senha: ['', [Validators.required]]
+    });
+  }
 
   ngOnInit(): void {
   }
+
+  public signInGoogle(): void {
+    this.authService.authenticateByGoogle().subscribe(crendencials => {
+      this.notification.showMessage("Autenticado com Google!");
+      this.router.navigate(["/home"])
+    })
+  }
+
+  public signInEmailAndPassword(): void{
+    if(this.formLogin.valid) {
+    const user: User = this.formLogin.value;
+    this.authService.authenticateByEmailAndPassword(user).subscribe(credencials => {
+      this.notification.showMessage("Autenticado com email e senha!");
+      this.router.navigate(["/home"])
+    });
+  } else {
+    this.notification.showMessage("Dados inválidos.")
+  }
+  }
+
+
+
 
 }

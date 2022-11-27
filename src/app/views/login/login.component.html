@@ -1,13 +1,13 @@
 <div id="login-container">
     <div class="login-form">
         <h1>Login</h1>
-        <button>
+        <button (click)="signInGoogle()">
             <img src="assets/icons/google.svg" alt="Logo Google">
         </button>
-        <form>
+        <form [formGroup]="formLogin">
             <input type="email" placeholder="E-mail" formControlName="email">
             <input type="password" placeholder="Senha" formControlName="senha">
-            <button type="submit">Entrar</button>
+            <button type="submit" (click)="signInEmailAndPassword()">Entrar</button>
         </form>
         <span>Ainda não é cadastrado? <a routerLink="/cadastrar-usuario">Cadastre-se</a></span>
     </div>

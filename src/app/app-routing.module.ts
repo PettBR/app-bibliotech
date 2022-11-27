@@ -7,6 +7,7 @@ import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-empr
 import { EmprestimoComponent } from './views/emprestimo/emprestimo.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: "Home | Bibliotech"
+    title: "Home | Bibliotech",
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'login',
@@ -32,22 +34,26 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    title: "Painel de Controle | Bibliotech"
+    title: "Painel de Controle | Bibliotech",
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'dashboard/emprestimo',
     component: EmprestimoComponent,
-    title: "Empréstimo de Livro | Bibliotech"
+    title: "Empréstimo de Livro | Bibliotech",
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'dashboard/editar/:id',
     component: EditarEmprestimoComponent,
-    title: "Editar Empréstimo de Livro | Bibliotech"
+    title: "Editar Empréstimo de Livro | Bibliotech",
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'cadastrar-livro',
     component: CadastrarLivroComponent,
-    title: "Cadastro de Livros | Bibliotech"
+    title: "Cadastro de Livros | Bibliotech",
+    canActivate: [ AuthGuard ]
   }
 
 ];
