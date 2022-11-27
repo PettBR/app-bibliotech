@@ -7,7 +7,7 @@ table {
     overflow: auto;
 }
 
-.avatar {
+.capa {
     width: 100px;
     height: 100px;
     border-radius: 50px;
@@ -17,5 +17,5 @@ table {
     position: absolute;
     right: 30px;
     bottom: 30px;
-    background-color: #5580d6;
+    background-color: rgb(122, 24, 44);
 }

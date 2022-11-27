@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Leitor } from 'src/app/models/leitor';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  displayedColumns: string[] = ['leitor', 'livro', 'dataDeEmprestimo', 'status', 'excluir', 'editar', 'capa'];
+  dataSource: Leitor[] = [
+    {
+      nome: "Felipe",
+      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
+      dataDeEmprestimo: new Date(),
+      status: "recebido",
+    }
+  ];
+
 
   constructor() { }
 
