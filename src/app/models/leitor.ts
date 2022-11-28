@@ -4,6 +4,5 @@ export interface Leitor {
     nome: string;
     livro: Livro;
     dataDeEmprestimo: Date;
-    status: string;
 }
 

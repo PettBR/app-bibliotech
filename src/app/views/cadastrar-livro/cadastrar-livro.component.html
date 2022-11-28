@@ -1,8 +1,61 @@
 <app-header></app-header>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h2>Cadastro de Livros</h2>
+
+ <table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let livro"> {{livro.titulo}}</td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="autor">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let livro"> {{livro.autor}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="categoria">
+    <th mat-header-cell *matHeaderCellDef> Weight </th>
+    <td mat-cell *matCellDef="let livro"> {{livro.categoria}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="isbn">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let livro"> {{livro.isbn}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> 
+
+
+    
+      <div class="form-container">
+          <h1>Cadastrar Livro</h1>
+    <form class="forms" [formGroup]="formCadastro" >
+    <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input type="text" matInput formControlName="titulo" placeholder="titulo">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <input type="text" matInput formControlName="categoria" placeholder="categoria">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Capa</mat-label>
+        <input type="url" matInput formControlName="capaUrl" placeholder="capa">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Autor</mat-label>
+        <input type="text" matInput FormControlName="autor" placeholder="autor">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ISBN</mat-label>
+        <input type="text" matInput FormControlName="isbn" placeholder="">
+      </mat-form-field>
+     <div class="botao">
+        <button class="btn-form" mat-raised-button color="primary">Adicionar</button>
+      </div> 
+    </form>

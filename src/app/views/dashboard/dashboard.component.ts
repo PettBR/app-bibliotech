@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Leitor } from 'src/app/models/leitor';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,21 +14,23 @@ export class DashboardComponent implements OnInit {
   dataSource: Leitor[] = [
     {
       nome: "Felipe",
-      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
-      dataDeEmprestimo: new Date(),
-      status: "recebido",
+      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA", status: "recebido"},
+      dataDeEmprestimo: new Date()
     },
     {
       nome: "Pedro",
-      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
-      dataDeEmprestimo: new Date(),
-      status: "pendente",
+      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA", status: "pendente"},
+      dataDeEmprestimo: new Date()
     }
 
   ];
 
 
-  constructor() { }
+  constructor(
+    private notification: NotificationService,
+    private dialog: MatDialog,
+
+  ) { }
 
   ngOnInit(): void {
   }
