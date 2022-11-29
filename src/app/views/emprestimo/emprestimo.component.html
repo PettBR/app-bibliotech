@@ -1,32 +1,38 @@
 <app-header></app-header>
 <div class="container">
     
-    <form>
+    <form [formGroup]="formEmprestimo">
         <h1>Novo empréstimo</h1>
         <mat-form-field class="full-width" appearance="outline" required>
             <mat-label>Leitor</mat-label>
             <input type="text" matInput placeholder="Leitor" formControlName="leitor">
         </mat-form-field>
+
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>E-mail</mat-label>
             <input type="text" matInput placeholder="E-mail" formControlName="email">
         </mat-form-field>
+
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Telefone</mat-label>
             <input type="text" matInput placeholder="Telefone" formControlName="telefone">
         </mat-form-field>
+
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select>
-                <mat-option>Pendente</mat-option>
-                <mat-option>Devolvido</mat-option>
+            <mat-select matNativeControl formControlName="status">
+                <mat-option disabled selected></mat-option>
+                <mat-option value="Pendente">Pendente</mat-option>
+                <mat-option value="Devolvido">Devolvido</mat-option>
             </mat-select>
         </mat-form-field>
+
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
-            <mat-select>
-                <mat-option>Harry Potter e Angular Perdido</mat-option>
-                <mat-option>Como linkar com o firebase</mat-option>
+            <mat-select matNativeControl formControlName="livro">
+                <mat-option disabled selected></mat-option>
+                <mat-option value="Harry Potter">Harry Potter e Angular Perdido</mat-option>
+                <mat-option value="">Linkar diretamente com livros de Livro</mat-option>
             </mat-select>
         </mat-form-field>
 

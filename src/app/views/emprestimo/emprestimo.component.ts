@@ -24,8 +24,8 @@ export class EmprestimoComponent implements OnInit {
       leitor: ["", [Validators.required]],
       email: ["", [Validators.required], [Validators.email]],
       telefone: ["", [Validators.required]],
-      status: ["", [Validators.required]],
-      livro: ["", [Validators.required]]
+      status: [""],
+      livro: [""]
     });
   }
 
