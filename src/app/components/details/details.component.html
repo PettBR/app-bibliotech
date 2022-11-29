@@ -1,1 +1,13 @@
-<p>details works!</p>
+<div class= "dialog-container">
+    <button mat-icon-button mat-dialog-close="">
+        <i class="material-icons">close</i>
+    </button>
+
+        <img src="{{livro.capaUrl | avatar}}" alt="Avatar">
+        <h3>{{livro.titulo}}</h3>
+
+        <span><strong>Titulo: </strong>{{livro.titulo}}</span>
+        <span><strong>Categoria: </strong>{{livro.categoria}}</span>
+        <span><strong>autor: </strong>{{livro.autor}}</span>
+        <span><strong>isbn: </strong>{{livro.isbn}}</span>
+</div>

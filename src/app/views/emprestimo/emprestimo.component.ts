@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Emprestimo } from 'src/app/models/emprestimo';
 import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { CadastrarLivrosService } from 'src/app/services/cadastrar-livros.service';
+import { Livro } from 'src/app/models/livro';
 
 @Component({
   selector: 'app-emprestimo',
@@ -12,13 +14,15 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class EmprestimoComponent implements OnInit {
 
-  public formEmprestimo: FormGroup;
+  public livros: Livro[] = [];
+  public formEmprestimo!: FormGroup;
 
   constructor(
     fb: FormBuilder,
     private notification: NotificationService,
     private emprestimoService: EmprestimoService,
-    private router: Router
+    private router: Router,
+    private cadastrarLivroService: CadastrarLivrosService
   ) {
     this.formEmprestimo = fb.group({
       leitor: ["", [Validators.required]],
@@ -30,6 +34,7 @@ export class EmprestimoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initiateTable()
   }
 
   public cadastrarEmprestimo():void {
@@ -44,6 +49,12 @@ export class EmprestimoComponent implements OnInit {
     }else {
       this.notification.showMessage("Erro ao cadastrar empréstimo.")
     }
+  }
+
+  public initiateTable(): void {
+    this.cadastrarLivroService.findAll().subscribe(resposta => {
+      this.livros = resposta
+    })
   }
 
 }

@@ -22,6 +22,7 @@ import { EmprestimoComponent } from './views/emprestimo/emprestimo.component';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
 import { CadastrarUsuarioComponent } from './views/cadastrar-usuario/cadastrar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AvatarPipe } from './pipes/avatar.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CadastrarLivroComponent,
     EmprestimoComponent,
     EditarEmprestimoComponent,
-    CadastrarUsuarioComponent
+    CadastrarUsuarioComponent,
+    AvatarPipe
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select matNativeControl formControlName="status">
+            <mat-select formControlName="status">
                 <mat-option disabled selected></mat-option>
                 <mat-option value="Pendente">Pendente</mat-option>
                 <mat-option value="Devolvido">Devolvido</mat-option>
@@ -29,10 +29,8 @@
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
-            <mat-select matNativeControl formControlName="livro">
-                <mat-option disabled selected></mat-option>
-                <mat-option value="Harry Potter">Harry Potter e Angular Perdido</mat-option>
-                <mat-option value="">Linkar diretamente com livros de Livro</mat-option>
+            <mat-select formControlName="livro">
+                <mat-option *ngFor="let livro of livros" [value]="livro">{{livro.titulo}}</mat-option>
             </mat-select>
         </mat-form-field>
 
