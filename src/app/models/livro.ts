@@ -4,6 +4,5 @@ export interface Livro {
     categoria: string;
     autor: string;
     isbn: string;
-    status: string;
     capaUrl?: string;
 }

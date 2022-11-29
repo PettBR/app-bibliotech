@@ -14,12 +14,14 @@ export class DashboardComponent implements OnInit {
   dataSource: Leitor[] = [
     {
       nome: "Felipe",
-      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA", status: "recebido"},
+      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
+      email: "teste@mail.com",
       dataDeEmprestimo: new Date()
     },
     {
       nome: "Pedro",
-      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA", status: "pendente"},
+      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
+      email: "teste2@mail.com",
       dataDeEmprestimo: new Date()
     }
 

@@ -12,17 +12,16 @@ import { CadastrarLivrosService } from 'src/app/services/cadastrar-livros.servic
 })
 export class CadastrarLivroComponent implements OnInit {
 
-  public formCadastro: FormGroup;
+  public formCadastro!: FormGroup;
   
-  displayedColumns = ['titulo', 'autor', 'categoria', 'isbn', 'excluir'];
+  displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
   dataSource: Livro[] = []
   
   
   constructor(
     fb: FormBuilder,
     private notification: NotificationService,
-    private CadastrarLivrosService: CadastrarLivrosService,   
-    private router: Router
+    private CadastrarLivrosService: CadastrarLivrosService,
     
   ) {
     this.formCadastro = fb.group({
@@ -40,8 +39,8 @@ export class CadastrarLivroComponent implements OnInit {
   }
 
   private initializeTable(): void {
-    this.CadastrarLivrosService.findAll().subscribe(livro=> {
-      this.dataSource = livro;
+    this.CadastrarLivrosService.findAll().subscribe(livros=> {
+      this.dataSource = livros;
     });
   }
 

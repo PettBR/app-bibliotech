@@ -29,7 +29,7 @@ export class CadastrarLivrosService {
   }
 
   public findAll(): Observable<any> {
-    const promise = this.firestore.collection("livro").get();
+    const promise = this.firestore.collection("livros").get();
     return from(promise).pipe(
       map((response: any) => {
         return response.docs.map((doc: any) => {
