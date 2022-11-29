@@ -48,7 +48,6 @@ export class CadastrarLivrosService {
 
   public findById(id: string): Observable<any> {
     const promise = this.firestore.collection("livros").doc(id).get();
-    // convertendo para o nosso formato de livro(a interface criada) - aqui precisa fazer apenas 1 camada de tratamento pq o firestore já nos manda o doc
     return from(promise).pipe(
       map(doc => {
         const livro: Livro = doc.data() as Livro;
@@ -86,3 +85,4 @@ export class CadastrarLivrosService {
   }
 
 }
+

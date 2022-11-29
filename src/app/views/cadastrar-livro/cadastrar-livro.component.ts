@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Livro } from 'src/app/models/livro';
 import { NotificationService } from 'src/app/services/notification.service';
-import { Router } from '@angular/router';
 import { CadastrarLivrosService } from 'src/app/services/cadastrar-livros.service';
 
 @Component({
@@ -25,10 +24,10 @@ export class CadastrarLivroComponent implements OnInit {
     
   ) {
     this.formCadastro = fb.group({
-      titulo: [""],
-      categoria: [""],
-      autor: [""],
-      isbn: [""],
+      titulo: ["", [Validators.required]],
+      categoria: ["", [Validators.required]],
+      autor: ["", [Validators.required]],
+      isbn: ["", [Validators.required]],
       capaUrl: [""]
 
     });

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Leitor } from '../models/leitor';
+import { from , catchError, EMPTY, Observable, map } from 'rxjs';
+import { Emprestimo } from '../models/emprestimo';
 import { NotificationService } from './notification.service';
-import { Observable, from, EMPTY } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -16,8 +15,8 @@ export class EmprestimoService {
     private notification: NotificationService
   ) { }
 
-  public createEmprestimo(leitor: Leitor): Observable<any> {
-    const promise = this.firestore.collection("emprestimos").add(leitor);
+  public cadastrarEmprestimo(emprestimo: Emprestimo): Observable<any> {
+    const promise = this.firestore.collection("emprestimos").add(emprestimo);
     return from(promise).pipe(
       catchError(error => {
         this.notification.showMessage("Erro ao cadastrar.");

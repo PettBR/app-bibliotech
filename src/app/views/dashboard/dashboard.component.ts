@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Leitor } from 'src/app/models/leitor';
+import { Emprestimo } from 'src/app/models/emprestimo';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -11,18 +11,14 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class DashboardComponent implements OnInit {
 
   displayedColumns: string[] = ['leitor', 'livro', 'dataDeEmprestimo', 'status', 'excluir', 'editar', 'capa'];
-  dataSource: Leitor[] = [
+  dataSource: Emprestimo[] = [
     {
       nome: "Felipe",
-      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
       email: "teste@mail.com",
-      dataDeEmprestimo: new Date()
-    },
-    {
-      nome: "Pedro",
-      livro: {titulo:"titulo-teste2", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
-      email: "teste2@mail.com",
-      dataDeEmprestimo: new Date()
+      telefone: "987654321",
+      status: "Disponível",
+      livro: {titulo:"titulo-teste", autor:"autor-teste", categoria:"categoria-teste", isbn:"000-000-000-AA"},
+      dataDeEmprestimo: new Date(),
     }
 
   ];
