@@ -57,4 +57,33 @@ export class EmprestimoService {
     );
   }
 
+  public findById(id: string): Observable<any> {
+    const promise = this.firestore.collection("emprestimos").doc(id).get();
+    // convertendo para o nosso formato de colaborador(a interface criada) - aqui precisa fazer apenas 1 camada de tratamento pq o firestore já nos manda o doc
+    return from(promise).pipe(
+      map(doc => {
+        const emprestimo: Emprestimo = doc.data() as Emprestimo;
+        emprestimo.id = doc.id;
+        return emprestimo;
+      }),
+      catchError(error => {
+        this.notification.showMessage("Erro ao buscar pelo id");
+        console.error(error);
+        return EMPTY
+      })
+    )
+
+  }
+
+  public updateEmprestimo(emprestimo: Emprestimo) {
+    const promise = this.firestore.collection("emprestimos").doc(emprestimo.id).update(emprestimo);
+    return from(promise).pipe(
+      catchError(error => {
+        this.notification.showMessage("Erro ao atualizar empréstimo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
 }

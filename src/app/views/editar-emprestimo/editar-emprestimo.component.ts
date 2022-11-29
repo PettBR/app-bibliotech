@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Emprestimo } from 'src/app/models/emprestimo';
+import { Livro } from 'src/app/models/livro';
 import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import { CadastrarLivrosService } from 'src/app/services/cadastrar-livros.service';
-import { Livro } from 'src/app/models/livro';
+
 
 @Component({
   selector: 'app-editar-emprestimo',
@@ -14,49 +14,42 @@ import { Livro } from 'src/app/models/livro';
 })
 export class EditarEmprestimoComponent implements OnInit {
 
+  public emprestimo!: Emprestimo;
   public livros: Livro[] = [];
-  public formEmprestimo!: FormGroup;
-  
+
   constructor(
-    fb: FormBuilder,
     private notification: NotificationService,
     private emprestimoService: EmprestimoService,
     private router: Router,
-    private cadastrarLivroService: CadastrarLivrosService
-  ) {
-    this.formEmprestimo = fb.group({
-      leitor: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
-      telefone: ["", [Validators.required]],
-      status: [""],
-      livro: [""]
-    });
-  }
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.initiateTable()
+    this.initializeFields()
   }
 
-  public cadastrarEmprestimo():void {
-    if(this.formEmprestimo.valid) {
-      const emprestimo: Emprestimo = this.formEmprestimo.value
-      emprestimo.dataDeEmprestimo =  new Date()
-      this.emprestimoService.cadastrarEmprestimo(emprestimo).subscribe(resposta=> {
-        this.notification.showMessage("Empréstimo cadastrado com sucesso!")
-        this.router.navigate(["/dashboard"])
-      }
-        )
-    }else {
-      this.notification.showMessage("Erro ao cadastrar empréstimo.")
-    }
-  }
-
-  public initiateTable(): void {
-    this.cadastrarLivroService.findAll().subscribe(resposta => {
-      this.livros = resposta
+  private initializeFields(): void {
+    const id = this.route.snapshot.params["id"];
+    this.emprestimoService.findById(id).subscribe(emprestimo => {
+      this.emprestimo = emprestimo;
     })
   }
 
+  public updateEmprestimo(form: NgForm): void {
+    if(form.valid) {
+      this.emprestimoService.updateEmprestimo(this.emprestimo).subscribe(response => {
+        this.notification.showMessage("Empréstimo atualizado com sucesso.");
+        this.router.navigate(["/dashboard"]);
+      });
+    }
+    else {
+      this.notification.showMessage("Dados inválidos.");
+    }
+  }
+
+
+
 }
+
 
 
