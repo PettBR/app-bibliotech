@@ -1,1 +1,40 @@
-<p>editar-emprestimo works!</p>
+<app-header></app-header>
+<div class="container">
+    
+    <form>
+        <h1>Editar empréstimo</h1>
+        <mat-form-field class="full-width" appearance="outline" required>
+            <mat-label>Leitor</mat-label>
+            <input type="text" matInput placeholder="Leitor" formControlName="leitor">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input type="text" matInput placeholder="E-mail" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input type="text" matInput placeholder="Telefone" formControlName="telefone">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select>
+                <mat-option>Pendente</mat-option>
+                <mat-option>Devolvido</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Livro</mat-label>
+            <mat-select>
+                <mat-option>Harry Potter e Angular Perdido</mat-option>
+                <mat-option>Como linkar com o firebase</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+
+        <div class="double-width">
+            <button class="full-width btn-submit" mat-raised-button>Alterar</button>
+            <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a>
+        </div>
+    </form>
+</div>

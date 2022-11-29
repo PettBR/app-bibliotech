@@ -1,8 +1,9 @@
 <app-header></app-header>
 <div class="container">
-    <h1>Novo empréstimo</h1>
-    <form [formGroup]="formEmprestimo">
-        <mat-form-field class="full-width" appearance="outline">
+    
+    <form>
+        <h1>Novo empréstimo</h1>
+        <mat-form-field class="full-width" appearance="outline" required>
             <mat-label>Leitor</mat-label>
             <input type="text" matInput placeholder="Leitor" formControlName="leitor">
         </mat-form-field>
@@ -14,32 +15,25 @@
             <mat-label>Telefone</mat-label>
             <input type="text" matInput placeholder="Telefone" formControlName="telefone">
         </mat-form-field>
-
-        <!-- <mat-form-field class="full-width" appearance="outline">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Status</mat-label>
             <mat-select>
                 <mat-option>Pendente</mat-option>
                 <mat-option>Devolvido</mat-option>
             </mat-select>
-        </mat-form-field> -->
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Status</mat-label>
-            <input type="text" matInput placeholder="status" formControlName="status">
         </mat-form-field>
-
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
-            <input type="text" matInput placeholder="livro" formControlName="livro">
+            <mat-select>
+                <mat-option>Harry Potter e Angular Perdido</mat-option>
+                <mat-option>Como linkar com o firebase</mat-option>
+            </mat-select>
         </mat-form-field>
-        <!-- ngFor pra criar as opções? -->
-
-
-
 
 
 
         <div class="double-width">
-            <button class="full-width btn-submit" mat-raised-button (click)="createEmprestimo()">Cadastrar</button>
+            <button class="full-width btn-submit" mat-raised-button>Cadastrar</button>
             <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a>
         </div>
     </form>

@@ -13,7 +13,9 @@ export class CadastrarLivroComponent implements OnInit {
   public formCadastro: FormGroup;
 
     displayedColumns = ['titulo', 'categoria', 'autor', 'isbn'];
-    dataSource: Livro[] = [];
+    dataSource: Livro[] = [
+      {titulo:"titulo-teste", categoria:"categoria-teste",autor:"autor-teste", isbn:"000-000-000-AA", status: "recebido"}
+    ];
 
   constructor(
     fb: FormBuilder,

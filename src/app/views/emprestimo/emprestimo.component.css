@@ -1,3 +1,11 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin-top: 60px;
+}
+
 .full-width{
     width: 100%;
 }
@@ -17,29 +25,16 @@
     background-color: #6b98f1;
     color: #ffffff;
 }
-
 .btn-submit:hover {
     background-color: #587dc8;
 }
+
 
 .btn-close {
     margin-top: 30px;
     background-color: #ca5656;
     color: #ffffff;
 }
-
 .btn-close:hover {
     background-color: #aa4747;
-}
-
-.upload-photo {
-    width: 100%;
-    padding: 10px 20px;
-    border: 1px solid #bababa;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.upload-photo::-webkit-file-upload-button {
-    display: none;
 }
