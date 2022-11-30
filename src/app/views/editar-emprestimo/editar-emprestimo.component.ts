@@ -16,19 +16,27 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class EditarEmprestimoComponent implements OnInit {
 
   public emprestimo!: Emprestimo;
-  public livroAtual!: Livro
+
   public livros: Livro[] = [];
 
   constructor(
     private notification: NotificationService,
     private emprestimoService: EmprestimoService,
-    private livroService: CadastrarLivrosService,
+    private livrosService: CadastrarLivrosService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.initializeFields()
+    this.listarLivros();
+  }
+
+  private listarLivros(): void {
+    this.livrosService.findAll().subscribe((livro) => {
+      this.livros = livro;
+    }
+    )
   }
 
   private initializeFields(): void {

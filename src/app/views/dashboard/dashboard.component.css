@@ -14,7 +14,11 @@ table {
 .capa {
     width: 100px;
     height: 100px;
-    border-radius: 50px;
+    border-radius: 20px;
+    border: 2px solid black;
+    object-fit: cover;
+    display: flex;
+    align-self: center;
 }
 
 .btn-new {

@@ -30,7 +30,7 @@
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
             <mat-select name="livro" [(ngModel)]="emprestimo.livro">
-                <mat-option *ngFor="let livro of livros" [value]="emprestimo.livro">{{emprestimo.livro.titulo}}</mat-option>
+                <mat-option [value]="emprestimo.livro">{{emprestimo.livro.titulo}}</mat-option>
             </mat-select>
         </mat-form-field>
 

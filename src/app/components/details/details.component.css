@@ -5,9 +5,11 @@
 
 .dialog-container img {
     width: 120px;
-    height: 120pf;
-    border-radius: 60px;
+    height: 160px;
+    border-radius: 20px;
+    border: 2px solid black;
     margin: 0 auto;
+    object-fit: cover;
 }
 
 .dialog-container h3 {
