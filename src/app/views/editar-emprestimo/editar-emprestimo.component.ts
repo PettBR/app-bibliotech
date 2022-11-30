@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Emprestimo } from 'src/app/models/emprestimo';
 import { Livro } from 'src/app/models/livro';
+import { CadastrarLivrosService } from 'src/app/services/cadastrar-livros.service';
 import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
@@ -15,11 +16,13 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class EditarEmprestimoComponent implements OnInit {
 
   public emprestimo!: Emprestimo;
+  public livroAtual!: Livro
   public livros: Livro[] = [];
 
   constructor(
     private notification: NotificationService,
     private emprestimoService: EmprestimoService,
+    private livroService: CadastrarLivrosService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

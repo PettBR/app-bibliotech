@@ -7,6 +7,10 @@ table {
     overflow: auto;
 }
 
+.container h2 {
+    text-align: center;
+}
+
 .capa {
     width: 100px;
     height: 100px;
